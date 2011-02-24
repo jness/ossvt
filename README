@@ -1,1 +1,11 @@
 Open Source Software Version Tracker
+-------------------------------------
+
+This script gets the latest version of Package from upstream:
+
+$ ./ossvt.py 
+['mysql-5.0.92.tar.gz']
+['mysql-5.1.55.tar.gz']
+['mysql-5.5.9.tar.gz']
+['php-5.2.17.tar.gz']
+['php-5.3.5.tar.gz']
