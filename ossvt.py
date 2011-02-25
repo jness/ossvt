@@ -40,7 +40,7 @@ def compare_to_ius(name, p):
     content = request.read()
     match = compile(name + '-([0-9.]*)-.*.src.rpm').findall(content)
     ius_ver = sorted(match, reverse=True)[0]
-    if ius_ver <= p['version']:
+    if ius_ver < p['version']:
         return p['version']
 
 # Lets compare IUS version with latest upstream
@@ -50,3 +50,5 @@ for package in latest_packages:
     compare = compare_to_ius(package, latest_packages[package])
     if compare:
         print package, 'is out of date, upstream has', compare
+    else:
+        print package, 'is up to date'
