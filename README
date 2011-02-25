@@ -4,8 +4,8 @@ Open Source Software Version Tracker
 This script gets the latest version of Package from upstream:
 
 $ ./ossvt.py 
-[('mysql-5.0.92.tar.gz', '5.0.92')]
-[('mysql-5.1.55.tar.gz', '5.1.55')]
-[('mysql-5.5.9.tar.gz', '5.5.9')]
-[('php-5.2.17.tar.gz', '5.2.17')]
-[('php-5.3.5.tar.gz', '5.3.5')]
+php52 is up to date
+mysql55 is up to date
+php53u is up to date
+mysql50 is up to date
+mysql51 is up to date
