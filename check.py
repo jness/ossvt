@@ -34,7 +34,7 @@ def all_latest(packages):
         content = urllib2.urlopen(request).read()
         versions = compile(p['regex']).findall(content)
         versions = sorted(versions, reverse=True)
-        latest[p['name']] = {'package': versions[0][0], 'version': versions[0][1]}
+        latest[p['name']] = {'version': versions[0]}
     return latest
 
 def ius_version(name):

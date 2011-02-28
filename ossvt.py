@@ -34,7 +34,7 @@ def all_latest(packages):
         content = urllib2.urlopen(request).read()
         versions = compile(p['regex']).findall(content)
         versions = sorted(versions, reverse=True)
-        latest[p['name']] = {'package': versions[0][0], 'version': versions[0][1]}
+        latest[p['name']] = {'version': versions[0]}
     return latest
    
 def compare_to_ius(name, p):
@@ -92,6 +92,6 @@ for package in latest_packages:
             print 'Bug Already Created'
         else:
             print 'Creating Launchpad Bug for', package
-            create_bug(package, compare)
+            #create_bug(package, compare)
     else:
         print package, 'is up to date'
