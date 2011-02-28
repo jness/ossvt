@@ -4,12 +4,31 @@ Open Source Software Version Tracker
 This script gets the latest version of Package from upstream:
 
 $ ./ossvt.py 
-php52 is up to date
-mysql51 is up to date
-Creating Launchpad Bug for python31
-mysql55 is up to date
 mysql50 is up to date
+mysql51 is up to date
+mysql55 is up to date
+nginx07 is up to date
+php52-eaccelerator is up to date
+ Creating Launchpad Bug for php52-ioncube-loader
+ Creating Launchpad Bug for php52-pear
+php52-pecl-apc is up to date
+php52-pecl-imagick is up to date
+php52-pecl-memcache is up to date
+ Creating Launchpad Bug for php52-pecl-xdebug
+php52-suhosin is up to date
+php52-xcache is up to date
+php52 is up to date
+php53u-eaccelerator is up to date
+ Creating Launchpad Bug for php53u-ioncube-loader
+ Creating Launchpad Bug for php53u-pear
+php53u-pecl-apc is up to date
+php53u-pecl-imagick is up to date
+php53u-pecl-memcache is up to date
+ Creating Launchpad Bug for php53u-pecl-xdebug
+php53u-suhosin is up to date
+php53u-xcache is up to date
 php53u is up to date
+ Creating Launchpad Bug for python31
 
 =====
 
