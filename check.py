@@ -33,6 +33,7 @@ def all_latest(packages):
 
         content = urllib2.urlopen(request).read()
         versions = compile(p['regex']).findall(content)
+        versions = sorted(versions, reverse=True)
         latest[p['name']] = {'package': versions[0][0], 'version': versions[0][1]}
     return latest
 
@@ -60,4 +61,4 @@ for package in latest_packages:
     if compare:
         print package, 'is out of date, we have', ius_ver, 'upstream has', compare
     else:
-        print package, 'is up to date'
+        print package, 'is up to date, we have', ius_ver
