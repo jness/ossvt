@@ -5,7 +5,15 @@ This script gets the latest version of Package from upstream:
 
 $ ./ossvt.py 
 php52 is up to date
-mysql55 is up to date
-php53u is up to date
-mysql50 is up to date
 mysql51 is up to date
+Creating Launchpad Bug for python31
+mysql55 is up to date
+mysql50 is up to date
+php53u is up to date
+
+=====
+
+We can check individual packages as well:
+
+$ ./check.py python31
+python31 is out of date, we have 3.1.2 upstream has 3.1.3

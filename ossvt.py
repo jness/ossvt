@@ -59,7 +59,6 @@ def compare_titles(titles, name, version):
     'Compare our title with LP title'
     for title in titles:
         mytitle = 'UPDATE REQUEST: ' +  name + ' ' +  str(version) + ' is available upstream'
-        print 'comparing', title, 'to', mytitle
         if title == mytitle:
             return True
 
@@ -89,7 +88,9 @@ for package in latest_packages:
 
         if compare_titles(titles, package, compare):
             # Our version is outdated and a LP bug does not exist
-            print 'Creating LP Bug'
+            print 'Bug Already Created'
+        else:
+            print 'Creating Launchpad Bug for', package
             create_bug(package, compare)
     else:
         print package, 'is up to date'
