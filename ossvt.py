@@ -72,17 +72,24 @@ def create_bug(name, version):
 # Lets compare IUS version with latest upstream
 packages = packages()
 latest_packages = all_latest(packages)
-titles = bug_titles()
 
 for package in latest_packages:
+
+    # Do the actual version comparisons
     compare = compare_to_ius(package, latest_packages[package])
     if compare:
+
+        # See if we checked LP Yet
+        try:
+            if titles:
+                pass
+        except:
+            # If we haven't checked LP do it now
+            titles = bug_titles()
+
         if compare_titles(titles, package, compare):
+            # Our version is outdated and a LP bug does not exist
             print 'Creating LP Bug'
             create_bug(package, compare)
     else:
         print package, 'is up to date'
-
-
-
-# UPDATE REQUEST: php52 5.2.18 is available upstream
