@@ -19,24 +19,21 @@ def packages():
         packages.append(c)
     return packages
 
-def all_latest(packages):
-    'Using the data from packages() check each source'
-    latest = {}
-    for p in packages:
-        request = urllib2.Request(p['url'])
-        try:
-            post = {p['post_value']: p['post_data']}
-        except KeyError:
-            pass
-        else:
-            request.add_data(urlencode(post))
+def latest(p):
+    'Using the data from packages() check source'
+    request = urllib2.Request(p['url'])
+    try:
+        post = {p['post_value']: p['post_data']}
+    except KeyError:
+        pass
+    else:
+        request.add_data(urlencode(post))
 
-        content = urllib2.urlopen(request).read()
-        versions = compile(p['regex']).findall(content)
-        versions = sorted(versions, reverse=True)
-        latest[p['name']] = {'version': versions[0]}
-    return latest
-   
+    content = urllib2.urlopen(request).read()
+    versions = compile(p['regex']).findall(content)
+    version = sorted(versions, reverse=True)[0]
+    return version
+
 def compare_to_ius(name, p):
     'Takes the results of each object of all_latest() and compares version to IUS'
     request = urllib2.urlopen('http://dl.iuscommunity.org/pub/ius/stable/Redhat/5/SRPMS/')
@@ -71,9 +68,12 @@ def create_bug(name, version):
 
 # Lets compare IUS version with latest upstream
 packages = packages()
-latest_packages = all_latest(packages)
 
-for package in latest_packages:
+for p in packages:
+    latest_packages = {}
+    ver = latest(p)
+    package = p['name']
+    latest_packages[package] = {'version': ver}
 
     # Do the actual version comparisons
     compare = compare_to_ius(package, latest_packages[package])
@@ -91,7 +91,7 @@ for package in latest_packages:
             # Our version is outdated and a LP bug does not exist
             print 'Bug Already Created'
         else:
-            print 'Creating Launchpad Bug for', package
+            print ' Creating Launchpad Bug for', package
             #create_bug(package, compare)
     else:
         print package, 'is up to date'
