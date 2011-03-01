@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
-from ossvt.upstream import *
-from ossvt.ius import *
-from ossvt.launchpad import *
+from ossvt.upstream import package, packages, latest
+from ossvt.ius import ius_version, compare_to_ius
+from ossvt.launchpad import bug_titles, compare_titles, create_bug
 import argparse
 
 class colors:
