@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
-from lib.upstream import *
-from lib.ius import *
-from lib.launchpad import *
+from ossvt.upstream import *
+from ossvt.ius import *
+from ossvt.launchpad import *
 import argparse
 
 class colors:
