@@ -19,6 +19,9 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--name', help='Software Version to Compare', required=False)
 args = parser.parse_args()
 
+# Disable Launchpad Tickets for now
+with_launchpad = False
+
 # Lets compare IUS version with latest upstream
 if args.name:
     pkg = package(args.name)
@@ -38,6 +41,22 @@ if pkg:
         compare = compare_to_ius(ius_ver, upstream_ver)
         if compare:
             print '%-30s %-15s %-15s %s' % (p['name'], ius_ver, upstream_ver, colors.red + 'outdated' + colors.end)
+
+            # See if we checked LP Yet
+            if with_launchpad:
+                try:
+                    if titles:
+                        pass
+                except:
+                    # If we haven't checked LP do it now
+                    titles = bug_titles()
+
+                if compare_titles(titles, p['name'], compare):
+                    # Already in Launchpad
+                    pass
+                else:
+                    create_bug(p['name'], compare, p['url'])
+                    
         else:
             print '%-30s %-15s %-15s %s' % (p['name'], ius_ver, upstream_ver, colors.green + 'updated' + colors.end)
 else:
