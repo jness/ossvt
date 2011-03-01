@@ -25,6 +25,7 @@ with_launchpad = False
 # Lets compare IUS version with latest upstream
 if args.name:
     pkg = package(args.name)
+    with_launchpad = False
 else:
     pkg = packages()
 
