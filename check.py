@@ -2,10 +2,16 @@
 
 from lib.upstream import *
 from lib.ius import *
-import sys
+import argparse
+
+# Build my Parser with help for user input
+parser = argparse.ArgumentParser()
+parser.add_argument('software', metavar='software', help='Software Version to Compare')
+args = parser.parse_args()
+
 
 # Lets compare IUS version with latest upstream
-pkg = package(sys.argv[1])
+pkg = package(args.software)
 
 for p in pkg:
     upstream_ver = latest(p)
