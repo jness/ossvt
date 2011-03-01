@@ -25,17 +25,20 @@ if args.name:
 else:
     pkg = packages()
 
-# Print out our Packages and Info
-print '%-30s %-15s %-15s %s' % ('name', 'ius ver', 'upstream ver', 'status')
-print '='*75
+if pkg:
+    # Print out our Packages and Info
+    print '%-30s %-15s %-15s %s' % ('name', 'ius ver', 'upstream ver', 'status')
+    print '='*75
 
-for p in pkg:
-    upstream_ver = latest(p)
-    ius_ver = ius_version(p['name'])
+    for p in pkg:
+        upstream_ver = latest(p)
+        ius_ver = ius_version(p['name'])
 
-    # Do the actual version comparisons
-    compare = compare_to_ius(ius_ver, upstream_ver)
-    if compare:
-        print '%-30s %-15s %-15s %s' % (p['name'], ius_ver, upstream_ver, colors.red + 'outdated' + colors.end)
-    else:
-        print '%-30s %-15s %-15s %s' % (p['name'], ius_ver, upstream_ver, colors.green + 'updated' + colors.end)
+        # Do the actual version comparisons
+        compare = compare_to_ius(ius_ver, upstream_ver)
+        if compare:
+            print '%-30s %-15s %-15s %s' % (p['name'], ius_ver, upstream_ver, colors.red + 'outdated' + colors.end)
+        else:
+            print '%-30s %-15s %-15s %s' % (p['name'], ius_ver, upstream_ver, colors.green + 'updated' + colors.end)
+else:
+    print 'Not a valid package name'
