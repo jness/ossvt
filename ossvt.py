@@ -26,7 +26,8 @@ for p in packages:
             # Our version is outdated and a LP bug does not exist
             print 'Bug Already Created'
         else:
+            print p['name'], 'is OUT of date, we have', ius_ver, 'upstream has', upstream_ver
             print ' Creating Launchpad Bug for', p['name']
             #create_bug(package, compare)
     else:
-        print p['name'], 'is up to date'
+        print p['name'], 'is up to date, we have', ius_ver, 'upstream has', upstream_ver

@@ -3,6 +3,7 @@ from configobj import ConfigObj
 import urllib2
 from urllib import urlencode
 from re import compile
+from natsort import *
 
 def packages():
     'Check config files in ./pkgs and parse the data'
@@ -38,5 +39,10 @@ def latest(p):
 
     content = urllib2.urlopen(request).read()
     versions = compile(p['regex']).findall(content)
-    version = sorted(versions, reverse=True)[0]
+    # simple sorted does not work with versions containing
+    # more than one decimal
+    #version = sorted(versions, reverse=True)[0]
+    versions = natsorted(versions)
+    versions.reverse()
+    version = versions[0]
     return version

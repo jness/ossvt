@@ -16,4 +16,4 @@ for p in pkg:
     if compare:
         print p['name'], 'is out of date, we have', ius_ver, 'upstream has', compare
     else:
-        print p['name'], 'is up to date, we have', ius_ver
+        print p['name'], 'is up to date, we have', ius_ver, 'upstream has', upstream_ver
