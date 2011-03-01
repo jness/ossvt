@@ -21,7 +21,7 @@ print "="*65
 
 packages = packages()
 
-for p in packages:
+for p in sorted(packages, key=lambda packages: packages['name']):
     upstream_ver = latest(p)
     ius_ver = ius_version(p['name'])
 
