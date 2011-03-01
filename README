@@ -3,7 +3,7 @@ Open Source Software Version Tracker
 
 This script gets the latest version of Package from upstream:
 
-$ ./ossvt.py 
+$ ./main.py 
 name                           ius ver         upstream ver    status
 ===========================================================================
 mysql50                        5.0.92          5.0.92          updated
@@ -40,7 +40,7 @@ rsyslog4                       4.6.5           4.6.5           updated
 
 We can check individual packages as well:
 
-$ ./ossvt.py --name python31
+$ ./main.py --name python31
 name                           ius ver         upstream ver    status
 ===========================================================================
 python31                       3.1.2           3.1.3           outdated
