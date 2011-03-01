@@ -18,8 +18,8 @@ def compare_titles(titles, name, version):
         if title == mytitle:
             return True
 
-def create_bug(name, version):
+def create_bug(name, version, url):
     launchpad = Launchpad.login_with(os.path.basename(sys.argv[0]), 'production')
     ius = launchpad.projects.search(text='ius')[0]
     mytitle = 'UPDATE REQUEST: ' +  name + ' ' +  str(version) + ' is available upstream'
-    launchpad.bugs.createBug(description='New Source from Upstream:', title=mytitle, target=ius)
+    launchpad.bugs.createBug(description='New Source from Upstream:', url, title=mytitle, target=ius)
