@@ -11,8 +11,8 @@ Content-Type: text/html; charset="us-ascii"
 
 <pre>
 '''
-print '''If a package below contains a upstream ver this 
-package out of date and should be updated
+print '''If a package below contains a upstream ver, the 
+package is out of date and should be updated
 
 '''
 
