@@ -21,6 +21,8 @@ args = parser.parse_args()
 
 # Disable Launchpad Tickets for now
 with_launchpad = False
+# Show up to date software
+with_up2date = True
 
 # Lets compare IUS version with latest upstream
 if args.name:
@@ -59,6 +61,7 @@ if pkg:
                     create_bug(p['name'], compare, p['url'])
                     
         else:
-            print '%-30s %-15s %-15s %s' % (p['name'], ius_ver, upstream_ver, colors.green + 'updated' + colors.end)
+            if with_up2date:
+                print '%-30s %-15s %-15s %s' % (p['name'], ius_ver, upstream_ver, colors.green + 'updated' + colors.end)
 else:
     print 'Not a valid package name'
