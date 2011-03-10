@@ -4,10 +4,12 @@ import urllib2
 from urllib import urlencode
 from re import compile
 from natsort import *
+import os, sys
 
 def packages():
     'Check config files in ./pkgs and parse the data'
-    pkg_dir = './pkgs'
+    path = os.path.split(os.path.abspath(__file__))[0]
+    pkg_dir = path + '/pkgs'
     packages = []
     for _file in glob("%s/*.conf" % pkg_dir):
         c = ConfigObj(_file)
@@ -18,7 +20,8 @@ def packages():
 
 def package(pkg):
     'Check config files in ./pkgs and parse the data'
-    pkg_dir = './pkgs'
+    path = os.path.split(os.path.abspath(__file__))[0]
+    pkg_dir = path + '/pkgs'
     package = []
     for _file in glob("%s/%s.conf" % (pkg_dir, pkg)):
         c = ConfigObj(_file)
