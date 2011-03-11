@@ -24,8 +24,7 @@ setup(name='ossvt',
           'configobj',
           'launchpadlib',
       ],
-      entry_points="""
-      [console_scripts]
-      ossvt = ossvt.main
-      """,
+      entry_points= {
+        'console_scripts': ['ossvt = ossvt.main:main']
+        },
       )
