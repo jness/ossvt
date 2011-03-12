@@ -7,7 +7,9 @@ from natsort import *
 import os, sys
 
 def packages():
-    'Check config files in ./pkgs and parse the data'
+    '''Return a list of all packages found in pkg_dir,
+the configuration will contain needed regular expressions and 
+URLs to grab latest software version number.'''
     path = os.path.split(os.path.abspath(__file__))[0]
     pkg_dir = path + '/pkgs'
     packages = []
@@ -19,7 +21,9 @@ def packages():
     return packages
 
 def package(pkg):
-    'Check config files in ./pkgs and parse the data'
+    '''Return a list of one package found in pkg_dir with given pkg name,
+the configuration will contain needed regular expression and
+URL to grab latest software version number.'''
     path = os.path.split(os.path.abspath(__file__))[0]
     pkg_dir = path + '/pkgs'
     package = []
@@ -31,7 +35,9 @@ def package(pkg):
     return package
 
 def latest(p):
-    'Using the data from package() or packages() check source'
+    '''Using our list from package() or packages() we extract data to make
+the needed URL request, we then take the regex to pull the latest 
+software version.'''
     request = urllib2.Request(p['url'])
     try:
         post = {p['post_value']: p['post_data']}

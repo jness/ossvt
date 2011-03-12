@@ -1,0 +1,151 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>natsort Reference &mdash; Open Source Software Version Tracker v0.1 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Open Source Software Version Tracker v0.1 documentation" href="index.html" />
+    <link rel="next" title="upstream Reference" href="upstream.html" />
+    <link rel="prev" title="ius Reference" href="ius.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="upstream.html" title="upstream Reference"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ius.html" title="ius Reference"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Open Source Software Version Tracker v0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-ossvt.natsort">
+<span id="natsort-reference"></span><h1><tt class="docutils literal"><span class="pre">natsort</span></tt> Reference<a class="headerlink" href="#module-ossvt.natsort" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="ossvt.natsort.natcasecmp">
+<tt class="descclassname">ossvt.natsort.</tt><tt class="descname">natcasecmp</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="reference internal" href="_modules/ossvt/natsort.html#natcasecmp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ossvt.natsort.natcasecmp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Natural string comparison, ignores case.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ossvt.natsort.natcmp">
+<tt class="descclassname">ossvt.natsort.</tt><tt class="descname">natcmp</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="reference internal" href="_modules/ossvt/natsort.html#natcmp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ossvt.natsort.natcmp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Natural string comparison, case sensitive.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ossvt.natsort.natsort">
+<tt class="descclassname">ossvt.natsort.</tt><tt class="descname">natsort</tt><big>(</big><em>seq</em>, <em>cmp=&lt;function natcmp at 0x101faa5f0&gt;</em><big>)</big><a class="reference internal" href="_modules/ossvt/natsort.html#natsort"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ossvt.natsort.natsort" title="Permalink to this definition">¶</a></dt>
+<dd><p>In-place natural string sort.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ossvt.natsort.natsort_key">
+<tt class="descclassname">ossvt.natsort.</tt><tt class="descname">natsort_key</tt><big>(</big><em>s</em><big>)</big><a class="reference internal" href="_modules/ossvt/natsort.html#natsort_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ossvt.natsort.natsort_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used internally to get a tuple by which s is sorted.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ossvt.natsort.natsorted">
+<tt class="descclassname">ossvt.natsort.</tt><tt class="descname">natsorted</tt><big>(</big><em>seq</em>, <em>cmp=&lt;function natcmp at 0x101faa5f0&gt;</em><big>)</big><a class="reference internal" href="_modules/ossvt/natsort.html#natsorted"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ossvt.natsort.natsorted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a copy of seq, sorted by natural string sort.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ossvt.natsort.try_int">
+<tt class="descclassname">ossvt.natsort.</tt><tt class="descname">try_int</tt><big>(</big><em>s</em><big>)</big><a class="reference internal" href="_modules/ossvt/natsort.html#try_int"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ossvt.natsort.try_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert to integer if possible.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ius.html"
+                        title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">ius</span></tt> Reference</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="upstream.html"
+                        title="next chapter"><tt class="docutils literal"><span class="pre">upstream</span></tt> Reference</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/natsort.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="upstream.html" title="upstream Reference"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ius.html" title="ius Reference"
+             >previous</a> |</li>
+        <li><a href="index.html">Open Source Software Version Tracker v0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Jeffrey Ness.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>
