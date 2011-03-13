@@ -15,6 +15,7 @@ Contents:
    launchpad
    natsort
    upstream
+   ver_compare
    
 
 Indices and tables

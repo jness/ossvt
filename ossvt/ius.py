@@ -10,22 +10,3 @@ def ius_version(name):
     ius_ver = sorted(match, reverse=True)[0]
     return ius_ver
 
-def compare_to_ius_simple(ius_ver, upstream_ver):
-    '''A simple function to compare ius_ver to upstream_ver'''
-    if ius_ver < upstream_ver:
-        return upstream_ver
-
-def compare_to_ius(ius_ver, upstream_ver):
-    '''Using ossvt.natsort we compare ius_ver and upstream_ver'''
-    ius_ver_split = ius_ver.split('.')
-    upsteram_ver_split = upstream_ver.split('.')
-    count = 0
-    for i in upsteram_ver_split:
-        if ius_ver_split[count] == upsteram_ver_split[count]:
-            count += 1
-            continue
-        else:
-            if int(ius_ver_split[count]) < int(upsteram_ver_split[count]):
-                return upstream_ver
-            else:
-                break

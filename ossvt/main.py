@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 
 from upstream import package, packages, latest
-from ius import ius_version, compare_to_ius
+from ius import ius_version
 from launchpad import bug_titles, compare_titles, create_bug
+from ver_compare import vcompare
 import argparse
 
 class colors:
@@ -41,7 +42,7 @@ def main():
             ius_ver = ius_version(p['name'])
 
             # Do the actual version comparisons
-            compare = compare_to_ius(ius_ver, upstream_ver)
+            compare = vcompare(ius_ver, upstream_ver)
             if compare:
                 print '%-30s %-15s %-15s %s' % (p['name'], ius_ver, upstream_ver, colors.red + 'outdated' + colors.end)
 
