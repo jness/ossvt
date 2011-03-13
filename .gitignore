@@ -3,6 +3,7 @@
 *.egg-info
 build
 dist
+doc/Makefile
 doc/_build
 doc/_static
 doc/_templates
