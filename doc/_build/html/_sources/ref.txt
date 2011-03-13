@@ -1,5 +1,0 @@
-Function Reference
-==================
-
-.. automodule:: ossvt.upstream
-   :members:

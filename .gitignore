@@ -3,3 +3,8 @@
 *.egg-info
 build
 dist
+doc/_build
+doc/_static
+doc/_templates
+doc/conf.py
+doc/make.bat
