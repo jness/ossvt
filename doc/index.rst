@@ -20,11 +20,10 @@ Below we have docmentation on each module and its functions:
 .. toctree::
    :maxdepth: 2
 
-   ius
-   launchpad
-   natsort
    upstream
+   ius
    ver_compare
+   launchpad
    
 
 Indices and tables
