@@ -44,10 +44,11 @@
          
          >>> from ossvt.upstream import packages
          >>> packages()
-         [ConfigObj({'enabled': 'True', 'name': 'mysql50', 'url': 'http://dev.mysql.com/downloads/mysql/5.0.html', 'regex': 'file=mysql-(5.0.[0-9]*).tar.gz', 'post_value': 'previous_os', 'post_data': 'src'}),
-          ConfigObj({'enabled': 'True', 'name': 'mysql51', 'url': 'http://dev.mysql.com/downloads/mysql/5.1.html', 'regex': 'file=mysql-(5.1.[0-9]*).tar.gz', 'post_value': 'previous_os', 'post_data': 'src'}),
+         [ConfigObj({'enabled': 'True', 'name': 'mysql50', 'url': 'http://dev.mysql.com/downloads/mysql/5.0.html'}),
+         ConfigObj({'enabled': 'True', 'name': 'mysql51', 'url': 'http://dev.mysql.com/downloads/mysql/5.1.html'}),
          ...
          ...
+         ]
 
    .. autoclass:: latest
       :members:
