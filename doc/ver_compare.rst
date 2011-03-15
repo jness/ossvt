@@ -24,6 +24,7 @@
          >>> from ossvt.upstream import package, latest
          >>> from ossvt.ius import ius_version
          >>> from ossvt.ver_compare import vcompare
+         >>> pkg = package('php52')
          >>> for p in pkg:
          ...     upstream = latest(p)
          ...     ius = ius_version(p['name'])
