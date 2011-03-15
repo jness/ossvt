@@ -1,5 +1,5 @@
 def vcompare(ver, upstream_ver):
-    '''Using ossvt.natsort we compare ver and upstream_ver'''
+    '''Compare versions int by int'''
     ver_split = ver.split('.')
     upsteram_ver_split = upstream_ver.split('.')
     count = 0

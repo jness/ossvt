@@ -60,7 +60,7 @@ def main():
                         pass
                     else:
                         create_bug(p['name'], compare, p['url'])
-                        
+
             else:
                 if with_up2date:
                     print '%-30s %-15s %-15s %s' % (p['name'], ius_ver, upstream_ver, colors.green + 'updated' + colors.end)

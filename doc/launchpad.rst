@@ -1,4 +1,4 @@
-``launchpad`` Reference
+``launchpad``
 =======================
 
 .. automodule:: ossvt.launchpad
