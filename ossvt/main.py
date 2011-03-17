@@ -1,16 +1,14 @@
 #!/usr/bin/env python
 
 from upstream import package, packages, latest
-from ius import ius_version
+from ius import ius_stable, ius_testing
 from launchpad import bug_titles, compare_titles, create_bug
 from ver_compare import vcompare
 import argparse
 
 class colors:
-    pink = '\033[95m'
     red = '\033[91m'
     green = '\033[92m'
-    gold = '\033[93m'
     blue = '\033[94m'
     end = '\033[0m'
 
@@ -19,11 +17,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--name', help='Software Version to Compare', required=False)
     args = parser.parse_args()
-
-    # Disable Launchpad Tickets for now
+    
+    # Configuration
     with_launchpad = False
-    # Show up to date software
-    with_up2date = True
+    layout = '%-30s %-15s %-15s %s'
+    layout_titles = ('name', 'ius ver', 'upstream ver', 'status')
 
     # Lets compare IUS version with latest upstream
     if args.name:
@@ -34,36 +32,54 @@ def main():
 
     if pkg:
         # Print out our Packages and Info
-        print '%-30s %-15s %-15s %s' % ('name', 'ius ver', 'upstream ver', 'status')
+        print layout % layout_titles
         print '='*75
 
         for p in pkg:
             upstream_ver = latest(p)
-            ius_ver = ius_version(p['name'])
+            ius_ver = ius_stable(p['name'])
 
             # Do the actual version comparisons
             compare = vcompare(ius_ver, upstream_ver)
             if compare:
-                print '%-30s %-15s %-15s %s' % (p['name'], ius_ver, upstream_ver, colors.red + 'outdated' + colors.end)
+                status = 'outdated'
+                color = colors.red
 
-                # See if we checked LP Yet
-                if with_launchpad:
-                    try:
-                        if titles:
-                            pass
-                    except:
-                        # If we haven't checked LP do it now
-                        titles = bug_titles()
+                # Since its out of date we should check testing
+                try:
+                    ius_test = ius_testing(p['name'])
+                    compare_testing = vcompare(ius_test, upstream_ver)
+                    if not compare_testing:
+                        ius_ver = ius_test
+                        status = 'testing'
+                        color = colors.blue
 
-                    if compare_titles(titles, p['name'], compare):
-                        # Already in Launchpad
-                        pass
-                    else:
-                        create_bug(p['name'], compare, p['url'])
-
+                # If we got a IndexError testing did not have the package
+                except IndexError:
+                    pass
+            
             else:
-                if with_up2date:
-                    print '%-30s %-15s %-15s %s' % (p['name'], ius_ver, upstream_ver, colors.green + 'updated' + colors.end)
+                status = 'up2date'
+                color = colors.green
+            
+            print layout % (p['name'], ius_ver, upstream_ver, color + status + colors.end)
+
+            # Check Launchpad if status is outdated
+            if with_launchpad and status == 'outdated':
+                try:
+                    if titles:
+                        pass
+                except:
+                    # If we haven't checked LP do it now
+                    titles = bug_titles()
+
+                if compare_titles(titles, p['name'], compare):
+                    # Already in Launchpad
+                    pass
+                else:
+                    create_bug(p['name'], compare, p['url'])
+
+
     else:
         print 'Not a valid package name'
 
