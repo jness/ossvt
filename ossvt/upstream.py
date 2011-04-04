@@ -53,5 +53,9 @@ software version.'''
     #version = sorted(versions, reverse=True)[0]
     versions = natsorted(versions)
     versions.reverse()
-    version = versions[0]
-    return version
+    try:
+        version = versions[0]
+    except IndexError:
+        return False
+    else:
+        return version
