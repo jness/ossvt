@@ -50,17 +50,22 @@ def main():
                     color = colors.red
 
                     # Since its out of date we should check testing
-                    try:
-                        ius_test = ius_testing(p['name'])
+                    ius_test = ius_testing(p['name'])
+                    if ius_test:
                         compare_testing = vcompare(ius_test, upstream_ver)
-                        if not compare_testing:
+                        if compare_testing:
+                            ius_ver = ius_test
+                            status = 'testing_outdated'
+                            color = colors.red
+                        else:
                             ius_ver = ius_test
                             status = 'testing'
                             color = colors.blue
 
+
                     # If we got a IndexError testing did not have the package
-                    except IndexError:
-                        pass
+                    #except IndexError:
+                    #    pass
                 
                 else:
                     status = 'up2date'
