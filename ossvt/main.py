@@ -55,7 +55,7 @@ def main():
                         compare_testing = vcompare(ius_test, upstream_ver)
                         if compare_testing:
                             ius_ver = ius_test
-                            status = 'testing_outdated'
+                            status = 'testing outdated'
                             color = colors.red
                         else:
                             ius_ver = ius_test
@@ -74,7 +74,7 @@ def main():
                 print layout % (p['name'], ius_ver, upstream_ver, color + status + colors.end)
 
                 # Check Launchpad if status is outdated
-                if with_launchpad and status == 'outdated':
+                if with_launchpad and status == 'outdated' or status == 'testing outdated':
                     try:
                         if titles:
                             pass
