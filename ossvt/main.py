@@ -36,7 +36,7 @@ def main():
         print layout % layout_titles
         print '='*75
 
-        for p in pkg:
+        for p in sorted(pkg, key=lambda a: a['name']):
             ius_ver = ius_stable(p['name'])
             upstream_ver = latest(p)
     
@@ -62,11 +62,6 @@ def main():
                             status = 'testing'
                             color = colors.blue
 
-
-                    # If we got a IndexError testing did not have the package
-                    #except IndexError:
-                    #    pass
-                
                 else:
                     status = 'up2date'
                     color = colors.green
