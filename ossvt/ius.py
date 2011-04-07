@@ -11,7 +11,7 @@ def ius_stable(name):
         ius_ver = sorted(match, reverse=True)[0]
     except IndexError:
         return None
-    else
+    else:
         return ius_ver
 
 def ius_testing(name):
