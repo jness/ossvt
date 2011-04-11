@@ -46,7 +46,11 @@ software version.'''
     else:
         request.add_data(urlencode(post))
 
-    content = urllib2.urlopen(request).read()
+    try:
+        content = urllib2.urlopen(request).read()
+    except urllib2.URLError:
+        return False
+
     versions = compile(p['regex']).findall(content)
     # simple sorted does not work with versions containing
     # more than one decimal
