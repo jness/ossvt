@@ -24,6 +24,7 @@ setup(name='ossvt',
           'configobj',
           'launchpadlib',
       ],
+      test_suite='nose.collector',
       entry_points= {
         'console_scripts': ['ossvt = ossvt.main:main']
         },
