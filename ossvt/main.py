@@ -88,19 +88,20 @@ def main():
                 output.append((p['name'], ius_ver, upstream_ver, htmlcolor + status + htmlcolors.end))
 
                 # Check Launchpad if status is outdated
-                if with_launchpad and status == 'outdated' or status == 'testing outdated':
-                    try:
-                        if titles:
-                            pass
-                    except:
-                        # If we haven't checked LP do it now
-                        titles = bug_titles()
+                if with_launchpad:
+                    if status == 'outdated' or status == 'testing outdated':
+                        try:
+                            if titles:
+                                pass
+                        except:
+                            # If we haven't checked LP do it now
+                            titles = bug_titles()
 
-                    if compare_titles(titles, p['name'], compare):
-                        # Already in Launchpad
-                        pass
-                    else:
-                        create_bug(p['name'], compare, p['url'])
+                        if compare_titles(titles, p['name'], compare):
+                            # Already in Launchpad
+                            pass
+                        else:
+                            create_bug(p['name'], compare, p['url'])
 
             # If we failed to pull upstream version
             else:
